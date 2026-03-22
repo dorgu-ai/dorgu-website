@@ -1,0 +1,113 @@
+"use client";
+
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, type Variants } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const DottedSurface = dynamic(
+  () =>
+    import("@/components/ui/dotted-surface").then((mod) => mod.DottedSurface),
+  { ssr: false }
+);
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const, delay },
+  }),
+};
+
+export function Hero({ className }: { className?: string }) {
+  return (
+    <section
+      className={cn(
+        "relative flex min-h-[calc(100dvh-4rem)] items-center pt-16 overflow-hidden",
+        className
+      )}
+    >
+      <DottedSurface className="opacity-30" />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center gap-12 px-4 py-20 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
+        {/* Text content */}
+        <div className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left">
+          <motion.h1
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0}
+            className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl xl:text-6xl"
+          >
+            The understanding layer{" "}
+            <span className="text-primary">for Kubernetes</span>
+          </motion.h1>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.12}
+            className="mt-6 max-w-xl text-lg text-muted-foreground"
+          >
+            AI-powered manifest generation, application personas, and a curated
+            production stack — from Dockerfile to production-ready cluster in
+            minutes.
+          </motion.p>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.24}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+          >
+            <Button
+              size="lg"
+              className="animate-button-glow px-8 py-3 text-base shadow-lg shadow-primary/25"
+              nativeButton={false}
+              render={<Link href="#waitlist" />}
+            >
+              Join the Waitlist
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              nativeButton={false}
+              render={
+                <Link
+                  href="https://dorguai.mintlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
+            >
+              Get Started
+            </Button>
+          </motion.div>
+        </div>
+
+        {/* Mascot image — desktop only */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.18}
+          className="hidden shrink-0 lg:block"
+        >
+          <Image
+            src="/mascot.jpg"
+            alt="Dorgu mascot"
+            width={380}
+            height={380}
+            priority
+            className="rounded-2xl object-cover shadow-2xl"
+          />
+        </motion.div>
+      </div>
+    </section>
+  );
+}
