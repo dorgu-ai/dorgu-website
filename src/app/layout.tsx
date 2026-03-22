@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Dorgu — The Understanding Layer for Kubernetes",
     description:
       "AI-powered manifest generation, application personas, and a curated production stack.",
-    url: "https://dorgu.in",
+    url: "https://dorgu.run",
     siteName: "Dorgu",
     type: "website",
   },

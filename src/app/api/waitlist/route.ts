@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
           features: data.features.join("; "),
           sandboxInterest: data.sandboxInterest,
           email: data.email,
-          phone: data.phone || "",
+          phone: data.phone ? `'${data.phone}` : "",
           company: data.company || "",
           referralSource: data.referralSource || "",
         }),

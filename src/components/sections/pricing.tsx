@@ -204,7 +204,7 @@ export function Pricing() {
                   size="lg"
                   className="w-full"
                   nativeButton={false}
-                  render={<Link href="mailto:hello@dorgu.in" />}
+                  render={<Link href="mailto:team@dorgu.run" />}
                 >
                   Contact Us
                 </Button>
