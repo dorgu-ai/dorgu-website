@@ -14,11 +14,14 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const FREE_FEATURES = [
-  "Full CLI (generate, init, persona, cluster, watch, sync)",
-  "Full Kubernetes Operator",
+  "The full self-healing loop — detect, diagnose, propose, approve, heal, remember",
+  "AI diagnosis and AI-written remediation plans (bring your own Anthropic key)",
+  "Rule-based detection, diagnosis, and remediation with no AI key at all",
+  "Guardrails: approval-gated, 2× blast-radius cap, rate limits, auto-rollback",
+  "Full CLI — generate, init, persona, cluster, health, incidents, remediation (diff / approve / heal), watch, sync",
+  "Full Kubernetes Operator (validation, personas, self-healing)",
   "Cluster setup wizard (Blessed Stack)",
   "Platform dashboard",
-  "LLM enhancement (bring your own key)",
   "ArgoCD + Prometheus integration",
   "Community support",
 ];
@@ -27,7 +30,6 @@ const PRO_FEATURES = [
   "Everything in Free, plus:",
   "Security policy generation (NetworkPolicy)",
   "Compliance templates (PCI-DSS, SOC2)",
-  "LLM-powered root cause analysis",
   "Auto-approve rules for remediations",
   "Slack/Teams notifications",
   "Priority support",
@@ -84,7 +86,8 @@ export function Pricing() {
             Simple, transparent pricing
           </h2>
           <p className="mt-3 text-base text-muted-foreground sm:text-lg">
-            Start free with the full open-source core. Scale when you need to.
+            The entire self-healing loop is open source and free forever. Paid
+            tiers are on the roadmap — nothing in them ships today.
           </p>
         </div>
 
@@ -162,6 +165,9 @@ export function Pricing() {
                     /month
                   </span>
                 </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Planned — none of these are available yet.
+                </p>
               </CardHeader>
 
               <CardContent className="flex flex-1 flex-col gap-6 pt-4">
@@ -191,6 +197,9 @@ export function Pricing() {
                 </CardTitle>
                 <p className="mt-2 text-2xl font-bold text-foreground">
                   Custom
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Planned — talk to us about what you need.
                 </p>
               </CardHeader>
 
