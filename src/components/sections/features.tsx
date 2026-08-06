@@ -35,7 +35,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-primary/10",
     title: "AI Self-Healing",
     description:
-      "Detect, diagnose, propose, approve, heal, remember. Dorgu spots OOMKills, crash loops, saturation, and node or control-plane trouble, works out the root cause, and writes an ordered plan — every step with its rationale, risk level, and a YAML diff you can read before anything happens.",
+      "Detect, diagnose, propose, approve, heal, remember. Dorgu spots OOMKills, crash loops, saturation, and node or control-plane trouble, works out the root cause, and writes an ordered plan. Every step carries its rationale, risk level, and a YAML diff you can read before anything happens.",
     tag: "the loop",
     colSpan: "md:col-span-2",
   },
@@ -54,7 +54,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-cyan-500/10",
     title: "Incident memory",
     description:
-      "IncidentMemory and RemediationAction CRDs keep the signal, the root cause, the confidence, the plan, and the outcome as first-class cluster objects — organizational memory that outlives the Slack thread and feeds the next diagnosis.",
+      "IncidentMemory and RemediationAction CRDs keep the signal, the root cause, the confidence, the plan, and the outcome as first-class cluster objects. Organizational memory that outlives the Slack thread and feeds the next diagnosis.",
     tag: "IncidentMemory CRD",
   },
   {
@@ -63,7 +63,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-amber-500/10",
     title: "Your cluster, your keys",
     description:
-      "Apache-2.0 and self-hosted. AI is optional and bring-your-own Anthropic key — detection, diagnosis, and remediation all work rule-based with no key at all. Your incidents stay as CRDs in your cluster. No lock-in.",
+      "Apache-2.0 and self-hosted. AI is optional and bring-your-own Anthropic key. Detection, diagnosis, and remediation all work rule-based with no key at all. Your incidents stay as CRDs in your cluster. No lock-in.",
     tag: "Apache 2.0",
   },
   {
@@ -72,7 +72,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-violet-500/10",
     title: "Kubernetes Operator",
     description:
-      "Validate deployments against personas. Advisory or enforcing webhooks, Prometheus-based resource learning, ArgoCD sync tracking — and it never creates or modifies your workloads, only the persona and incident records.",
+      "Validate deployments against personas. Advisory or enforcing webhooks, Prometheus-based resource learning, ArgoCD sync tracking. It never creates or modifies your workloads, only the persona and incident records.",
     tag: "Operator",
   },
   {
@@ -81,7 +81,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-blue-500/10",
     title: "Application Personas",
     description:
-      "Give your apps identity. ApplicationPersona CRDs capture what your app needs — resources, scaling, health, dependencies, ownership — and give every signal something to correlate to.",
+      "Give your apps identity. ApplicationPersona CRDs capture what your app needs (resources, scaling, health, dependencies, ownership) and give every signal something to correlate to.",
     tag: "CRD",
   },
   {
@@ -90,7 +90,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-teal-500/10",
     title: "Cluster Personas",
     description:
-      "Give your cluster a soul. ClusterPersona CRDs auto-discover nodes, addons, capacity, and state — the cluster context the AI plans against.",
+      "Give your cluster a soul. ClusterPersona CRDs auto-discover nodes, addons, capacity, and state: the cluster context the AI plans against.",
     tag: "ClusterPersona CRD",
   },
   {
@@ -108,7 +108,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-lime-500/10",
     title: "Cluster Setup Wizard",
     description:
-      "Bootstrap a production stack in minutes. cert-manager, ingress-nginx, CloudNativePG, OpenObserve, Argo CD, External Secrets — with an educational wizard that teaches as it installs.",
+      "Bootstrap a production stack in minutes. cert-manager, ingress-nginx, CloudNativePG, OpenObserve, Argo CD, External Secrets, with an educational wizard that teaches as it installs.",
     tag: "Blessed Stack",
   },
   {
@@ -208,7 +208,7 @@ export function Features() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
             Kubernetes restarts a crash-looping pod forever and never asks why.
-            Dorgu asks — then shows you the fix and waits for your call.
+            Dorgu asks, then shows you the fix and waits for your call.
           </p>
         </div>
 

@@ -14,11 +14,11 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const FREE_FEATURES = [
-  "The full self-healing loop — detect, diagnose, propose, approve, heal, remember",
+  "The full self-healing loop: detect, diagnose, propose, approve, heal, remember",
   "AI diagnosis and AI-written remediation plans (bring your own Anthropic key)",
   "Rule-based detection, diagnosis, and remediation with no AI key at all",
   "Guardrails: approval-gated, 2× blast-radius cap, rate limits, auto-rollback",
-  "Full CLI — generate, init, persona, cluster, health, incidents, remediation (diff / approve / heal), watch, sync",
+  "Full CLI: generate, init, persona, cluster, health, incidents, remediation (diff / approve / heal), watch, sync",
   "Full Kubernetes Operator (validation, personas, self-healing)",
   "Cluster setup wizard (Blessed Stack)",
   "Platform dashboard",
@@ -87,7 +87,7 @@ export function Pricing() {
           </h2>
           <p className="mt-3 text-base text-muted-foreground sm:text-lg">
             The entire self-healing loop is open source and free forever. Paid
-            tiers are on the roadmap — nothing in them ships today.
+            tiers are on the roadmap, and nothing in them ships today.
           </p>
         </div>
 
@@ -166,7 +166,7 @@ export function Pricing() {
                   </span>
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Planned — none of these are available yet.
+                  Planned. None of these are available yet.
                 </p>
               </CardHeader>
 
@@ -199,7 +199,7 @@ export function Pricing() {
                   Custom
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Planned — talk to us about what you need.
+                  Planned. Talk to us about what you need.
                 </p>
               </CardHeader>
 

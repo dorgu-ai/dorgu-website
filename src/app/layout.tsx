@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_TITLE = "Dorgu — Open-source AI SRE for Kubernetes";
+const SITE_TITLE = "Dorgu: Open-source AI SRE for Kubernetes";
 const SITE_DESCRIPTION =
   "Dorgu detects what's wrong in your Kubernetes cluster, diagnoses the root cause with AI, proposes a reviewable fix, and heals it once you approve. Open source, runs in your own cluster.";
 const SOCIAL_DESCRIPTION =

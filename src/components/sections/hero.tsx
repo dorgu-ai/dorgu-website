@@ -1,10 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { HeroMedia } from "@/components/hero-media";
 import { cn } from "@/lib/utils";
 
 const DottedSurface = dynamic(
@@ -45,7 +45,7 @@ export function Hero({ className }: { className?: string }) {
             custom={0}
             className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl xl:text-6xl"
           >
-            Your cluster, healing itself —{" "}
+            Your cluster, healing itself,{" "}
             <span className="text-primary">with your approval</span>
           </motion.h1>
 
@@ -107,15 +107,22 @@ export function Hero({ className }: { className?: string }) {
           </motion.div>
         </div>
 
-        {/* Demo loop */}
+        {/* Mascot image, desktop only */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate="visible"
           custom={0.18}
-          className="w-full lg:max-w-[560px] lg:flex-1"
+          className="hidden shrink-0 lg:block"
         >
-          <HeroMedia />
+          <Image
+            src="/mascot.jpg"
+            alt="Dorgu mascot"
+            width={380}
+            height={380}
+            priority
+            className="rounded-2xl object-cover shadow-2xl"
+          />
         </motion.div>
       </div>
     </section>

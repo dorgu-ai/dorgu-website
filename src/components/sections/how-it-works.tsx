@@ -18,32 +18,32 @@ const STEPS: Step[] = [
     command:
       "helm install dorgu-operator oci://ghcr.io/dorgu-ai/dorgu-operator-charts/dorgu-operator --set healthCheck.enabled=true",
     description:
-      "One Helm command, in your own cluster. Add an Anthropic key if you want AI diagnosis and AI-written plans — everything works rule-based without one.",
+      "One Helm command, in your own cluster. Add an Anthropic key if you want AI diagnosis and AI-written plans. Everything works rule-based without one.",
   },
   {
     number: 2,
     title: "Dorgu detects",
     command: "dorgu incidents list",
     description:
-      "The health-check reconciler watches for OOMKills, crash loops, image-pull failures, CPU and memory saturation, and node or control-plane trouble — every 60s by default, or 30s for a tight loop. Each signal opens an IncidentMemory.",
+      "The health-check reconciler watches for OOMKills, crash loops, image-pull failures, CPU and memory saturation, and node or control-plane trouble, every 60s by default or 30s for a tight loop. Each signal opens an IncidentMemory.",
   },
   {
     number: 3,
     title: "AI diagnoses",
     command: "dorgu incidents describe oom-api-server -n production",
     description:
-      "Deterministic rules produce a root cause and a confidence score. With a key configured, Claude enhances that with cluster context. Any AI failure degrades to the rules — it never blocks the loop.",
+      "Deterministic rules produce a root cause and a confidence score. With a key configured, Claude enhances that with cluster context. Any AI failure degrades to the rules and never blocks the loop.",
   },
   {
     number: 4,
     title: "It proposes a fix",
     command: "dorgu remediation diff fix-oom-api-server -n production",
     description:
-      "An ordered, reviewable plan lands as a RemediationAction — every step with its rationale, risk level, and a YAML diff. Capped at 2× blast radius, 5 remediations per app per hour, kube-system excluded.",
+      "An ordered, reviewable plan lands as a RemediationAction, every step carrying its rationale, risk level, and a YAML diff. Capped at 2× blast radius, 5 remediations per app per hour, kube-system excluded.",
   },
   {
     number: 5,
-    title: "You approve — it heals",
+    title: "You approve, it heals",
     command: "dorgu remediation approve fix-oom-api-server -n production",
     description:
       "Nothing is applied until you say so. The operator patches the persona's desired state; the CLI patches the Deployment with your credentials. If health regresses during the verification window, Dorgu rolls it back.",
@@ -53,7 +53,7 @@ const STEPS: Step[] = [
     title: "It remembers",
     command: "dorgu incidents list --all -n production",
     description:
-      "The signal, the root cause, the plan, and the outcome persist as CRDs in your cluster — and become context the next proposal is written against.",
+      "The signal, the root cause, the plan, and the outcome persist as CRDs in your cluster, and become context the next proposal is written against.",
   },
 ];
 
@@ -138,7 +138,7 @@ export function HowItWorks() {
             </p>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
               Code detects. AI explains. A human approves. Nothing touches your
-              workloads until you say so — and every command is readable, every
+              workloads until you say so. Every command is readable, and every
               record stays in your cluster.
             </p>
           </div>

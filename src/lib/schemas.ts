@@ -20,7 +20,7 @@ export const K8S_EXPERIENCE = [
 export const PAIN_POINTS = [
   "Diagnosing production incidents (OOMKilled, CrashLoopBackOff)",
   "Repeating the same manual fixes over and over",
-  "No dedicated SRE — on-call falls on the dev team",
+  "No dedicated SRE, on-call falls on the dev team",
   "Resource right-sizing",
   "Deployment validation & guardrails",
   "Writing & maintaining K8s manifests",
@@ -45,7 +45,7 @@ export const FEATURES = [
 
 export const SANDBOX_OPTIONS = [
   "Yes, this would be very valuable",
-  "Somewhat — depends on the implementation",
+  "Somewhat, depends on the implementation",
   "No, we already have a solution for this",
   "Not sure / Need to learn more",
 ] as const;
