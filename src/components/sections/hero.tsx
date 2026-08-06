@@ -13,6 +13,9 @@ const DottedSurface = dynamic(
   { ssr: false }
 );
 
+const DEMO_VIDEO_URL = "https://youtu.be/lB_529ydWw4";
+const DOCS_URL = "https://dorguai.mintlify.app/";
+
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: (delay: number = 0) => ({
@@ -42,8 +45,8 @@ export function Hero({ className }: { className?: string }) {
             custom={0}
             className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl xl:text-6xl"
           >
-            The understanding layer{" "}
-            <span className="text-primary">for Kubernetes</span>
+            Your cluster, healing itself,{" "}
+            <span className="text-primary">with your approval</span>
           </motion.h1>
 
           <motion.p
@@ -53,9 +56,9 @@ export function Hero({ className }: { className?: string }) {
             custom={0.12}
             className="mt-6 max-w-xl text-lg text-muted-foreground"
           >
-            AI-powered manifest generation, application personas, and a curated
-            production stack — from Dockerfile to production-ready cluster in
-            minutes.
+            Dorgu watches your cluster, diagnoses failures with AI, proposes a
+            reviewable fix, and applies it when you approve. Runs in your own
+            cluster. Apache-2.0.
           </motion.p>
 
           <motion.div
@@ -79,18 +82,32 @@ export function Hero({ className }: { className?: string }) {
               nativeButton={false}
               render={
                 <Link
-                  href="https://dorguai.mintlify.app/"
+                  href={DEMO_VIDEO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                 />
               }
             >
-              Get Started
+              Watch the 3-min demo
+            </Button>
+            <Button
+              variant="ghost"
+              size="lg"
+              nativeButton={false}
+              render={
+                <Link
+                  href={DOCS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
+            >
+              Read the docs
             </Button>
           </motion.div>
         </div>
 
-        {/* Mascot image — desktop only */}
+        {/* Mascot image, desktop only */}
         <motion.div
           variants={fadeUp}
           initial="hidden"

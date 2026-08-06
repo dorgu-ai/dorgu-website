@@ -13,19 +13,36 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_TITLE = "Dorgu: Open-source AI SRE for Kubernetes";
+const SITE_DESCRIPTION =
+  "Dorgu detects what's wrong in your Kubernetes cluster, diagnoses the root cause with AI, proposes a reviewable fix, and heals it once you approve. Open source, runs in your own cluster.";
+const SOCIAL_DESCRIPTION =
+  "Detect, diagnose with AI, propose a reviewable fix, heal on your approval. Open source, runs in your own cluster.";
+const SOCIAL_IMAGE = {
+  url: "/hero-poster.jpg",
+  width: 1280,
+  height: 724,
+  alt: "Dorgu diagnosing an OOMKilled workload and proposing a fix from the terminal",
+};
+
 export const metadata: Metadata = {
-  title: "Dorgu — The Understanding Layer for Kubernetes",
-  description:
-    "AI-powered manifest generation, application personas, and a curated production stack. From Dockerfile to production-ready cluster in minutes.",
+  metadataBase: new URL("https://dorgu.run"),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   keywords: [
+    "ai sre",
+    "kubernetes self-healing",
+    "incident remediation",
+    "root cause analysis",
+    "aiops",
+    "kubernetes operator",
+    "OOMKilled",
+    "CrashLoopBackOff",
     "kubernetes",
     "k8s",
-    "manifest generation",
+    "sre",
     "devops",
     "platform engineering",
-    "gitops",
-    "argocd",
-    "ai",
     "open source",
   ],
   icons: {
@@ -33,18 +50,18 @@ export const metadata: Metadata = {
     apple: "/mascot.jpg",
   },
   openGraph: {
-    title: "Dorgu — The Understanding Layer for Kubernetes",
-    description:
-      "AI-powered manifest generation, application personas, and a curated production stack.",
+    title: SITE_TITLE,
+    description: SOCIAL_DESCRIPTION,
     url: "https://dorgu.run",
     siteName: "Dorgu",
     type: "website",
+    images: [SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dorgu — The Understanding Layer for Kubernetes",
-    description:
-      "AI-powered manifest generation, application personas, and a curated production stack.",
+    title: SITE_TITLE,
+    description: SOCIAL_DESCRIPTION,
+    images: [SOCIAL_IMAGE],
   },
 };
 

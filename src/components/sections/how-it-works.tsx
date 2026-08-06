@@ -15,30 +15,45 @@ const STEPS: Step[] = [
   {
     number: 1,
     title: "Install",
-    command: "go install github.com/dorgu-ai/dorgu/cmd/dorgu@latest",
+    command:
+      "helm install dorgu-operator oci://ghcr.io/dorgu-ai/dorgu-operator-charts/dorgu-operator --set healthCheck.enabled=true",
     description:
-      "Install the dorgu CLI via Go. No containers, no package managers — a single binary on your PATH.",
+      "One Helm command, in your own cluster. Add an Anthropic key if you want AI diagnosis and AI-written plans. Everything works rule-based without one.",
   },
   {
     number: 2,
-    title: "Generate",
-    command: "dorgu generate ./my-app",
+    title: "Dorgu detects",
+    command: "dorgu incidents list",
     description:
-      "Point dorgu at your project. It reads your Dockerfile or Compose file and outputs production-ready Kubernetes manifests, ArgoCD config, and a persona doc.",
+      "The health-check reconciler watches for OOMKills, crash loops, image-pull failures, CPU and memory saturation, and node or control-plane trouble, every 60s by default or 30s for a tight loop. Each signal opens an IncidentMemory.",
   },
   {
     number: 3,
-    title: "Bootstrap",
-    command: "dorgu cluster setup",
+    title: "AI diagnoses",
+    command: "dorgu incidents describe oom-api-server -n production",
     description:
-      "Walk through the interactive wizard to install the blessed stack: cert-manager, ingress-nginx, Argo CD, External Secrets, and more — with explanations at every step.",
+      "Deterministic rules produce a root cause and a confidence score. With a key configured, Claude enhances that with cluster context. Any AI failure degrades to the rules and never blocks the loop.",
   },
   {
     number: 4,
-    title: "Visualize",
-    command: "dorgu platform serve",
+    title: "It proposes a fix",
+    command: "dorgu remediation diff fix-oom-api-server -n production",
     description:
-      "Launch the real-time dashboard. See your cluster, nodes, application personas, and addon health all in one place via live WebSocket updates.",
+      "An ordered, reviewable plan lands as a RemediationAction, every step carrying its rationale, risk level, and a YAML diff. Capped at 2× blast radius, 5 remediations per app per hour, kube-system excluded.",
+  },
+  {
+    number: 5,
+    title: "You approve, it heals",
+    command: "dorgu remediation approve fix-oom-api-server -n production",
+    description:
+      "Nothing is applied until you say so. The operator patches the persona's desired state; the CLI patches the Deployment with your credentials. If health regresses during the verification window, Dorgu rolls it back.",
+  },
+  {
+    number: 6,
+    title: "It remembers",
+    command: "dorgu incidents list --all -n production",
+    description:
+      "The signal, the root cause, the plan, and the outcome persist as CRDs in your cluster, and become context the next proposal is written against.",
   },
 ];
 
@@ -63,7 +78,7 @@ const stepVariants = {
 function TerminalBlock({ command }: { command: string }) {
   return (
     <div
-      className="rounded-lg px-4 py-3 font-mono text-sm"
+      className="rounded-lg px-4 py-3 font-mono text-sm break-words"
       style={{ backgroundColor: "#1a1a1a" }}
     >
       <span style={{ color: "#4ade80" }}>$</span>{" "}
@@ -116,14 +131,15 @@ export function HowItWorks() {
           {/* Left: header */}
           <div className="lg:sticky lg:top-28">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Up and running in minutes
+              From failure to fix, in six steps
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Four commands. That&apos;s all it takes.
+              Detect, diagnose, propose, approve, heal, remember.
             </p>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-              dorgu is designed around a simple principle: powerful defaults
-              with zero magic. Every command is readable, every output is yours.
+              Code detects. AI explains. A human approves. Nothing touches your
+              workloads until you say so. Every command is readable, and every
+              record stays in your cluster.
             </p>
           </div>
 

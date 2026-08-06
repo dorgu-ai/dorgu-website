@@ -18,29 +18,34 @@ export const K8S_EXPERIENCE = [
 ] as const;
 
 export const PAIN_POINTS = [
+  "Diagnosing production incidents (OOMKilled, CrashLoopBackOff)",
+  "Repeating the same manual fixes over and over",
+  "No dedicated SRE, on-call falls on the dev team",
+  "Resource right-sizing",
+  "Deployment validation & guardrails",
   "Writing & maintaining K8s manifests",
   "Cluster bootstrapping & tooling setup",
-  "Deployment validation & guardrails",
   "Observability & monitoring setup",
   "GitOps workflow configuration",
-  "Resource right-sizing",
   "Security policy enforcement",
-  "Onboarding new team members to K8s",
 ] as const;
 
 export const FEATURES = [
+  "AI self-healing (detect → diagnose → propose → approve → heal)",
+  "Human-in-the-loop approval & guardrails",
+  "AI root cause analysis (bring your own Anthropic key)",
+  "Incident memory & remediation history in the cluster",
   "AI-powered manifest generation",
-  "Blessed Stack (curated production tooling)",
   "Application & Cluster Personas (CRDs)",
+  "Blessed Stack (curated production tooling)",
   "Real-time platform dashboard",
-  "Compliance templates (Pro)",
-  "Multi-cluster management (Enterprise)",
-  "LLM-powered root cause analysis (Pro)",
+  "Auto-approve rules for remediations (planned)",
+  "Multi-cluster management (Enterprise, planned)",
 ] as const;
 
 export const SANDBOX_OPTIONS = [
   "Yes, this would be very valuable",
-  "Somewhat — depends on the implementation",
+  "Somewhat, depends on the implementation",
   "No, we already have a solution for this",
   "Not sure / Need to learn more",
 ] as const;

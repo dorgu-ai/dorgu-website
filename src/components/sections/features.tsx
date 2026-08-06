@@ -3,6 +3,10 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
+  HeartPulse,
+  UserCheck,
+  History,
+  KeyRound,
   Sparkles,
   Fingerprint,
   Layers,
@@ -26,14 +30,50 @@ type Feature = {
 
 const FEATURES: Feature[] = [
   {
-    icon: Sparkles,
+    icon: HeartPulse,
+    iconColor: "text-primary",
+    iconBg: "bg-primary/10",
+    title: "AI Self-Healing",
+    description:
+      "Detect, diagnose, propose, approve, heal, remember. Dorgu spots OOMKills, crash loops, saturation, and node or control-plane trouble, works out the root cause, and writes an ordered plan. Every step carries its rationale, risk level, and a YAML diff you can read before anything happens.",
+    tag: "the loop",
+    colSpan: "md:col-span-2",
+  },
+  {
+    icon: UserCheck,
+    iconColor: "text-emerald-500",
+    iconBg: "bg-emerald-500/10",
+    title: "Human-in-the-loop by default",
+    description:
+      "Every remediation is approval-gated. Resource changes are capped at 2× blast radius, limited to 5 per app per hour, and kube-system is always excluded. If health regresses after a fix, Dorgu rolls it back automatically.",
+    tag: "approval required",
+  },
+  {
+    icon: History,
+    iconColor: "text-cyan-500",
+    iconBg: "bg-cyan-500/10",
+    title: "Incident memory",
+    description:
+      "IncidentMemory and RemediationAction CRDs keep the signal, the root cause, the confidence, the plan, and the outcome as first-class cluster objects. Organizational memory that outlives the Slack thread and feeds the next diagnosis.",
+    tag: "IncidentMemory CRD",
+  },
+  {
+    icon: KeyRound,
+    iconColor: "text-amber-500",
+    iconBg: "bg-amber-500/10",
+    title: "Your cluster, your keys",
+    description:
+      "Apache-2.0 and self-hosted. AI is optional and bring-your-own Anthropic key. Detection, diagnosis, and remediation all work rule-based with no key at all. Your incidents stay as CRDs in your cluster. No lock-in.",
+    tag: "Apache 2.0",
+  },
+  {
+    icon: Shield,
     iconColor: "text-violet-500",
     iconBg: "bg-violet-500/10",
-    title: "AI Manifest Generation",
+    title: "Kubernetes Operator",
     description:
-      "Point dorgu at your Dockerfile or Compose file. Get production-ready Deployments, Services, Ingress, HPA, ArgoCD config, CI/CD workflows, and a human-readable persona doc.",
-    tag: "dorgu generate",
-    colSpan: "md:col-span-2",
+      "Validate deployments against personas. Advisory or enforcing webhooks, Prometheus-based resource learning, ArgoCD sync tracking. It never creates or modifies your workloads, only the persona and incident records.",
+    tag: "Operator",
   },
   {
     icon: Fingerprint,
@@ -41,45 +81,35 @@ const FEATURES: Feature[] = [
     iconBg: "bg-blue-500/10",
     title: "Application Personas",
     description:
-      "Give your apps identity. ApplicationPersona CRDs capture what your app needs — resources, scaling, health, dependencies, ownership — and persist it in the cluster.",
+      "Give your apps identity. ApplicationPersona CRDs capture what your app needs (resources, scaling, health, dependencies, ownership) and give every signal something to correlate to.",
     tag: "CRD",
   },
   {
-    icon: Layers,
-    iconColor: "text-emerald-500",
-    iconBg: "bg-emerald-500/10",
-    title: "Cluster Setup Wizard",
-    description:
-      "Bootstrap a production stack in minutes. cert-manager, ingress-nginx, CloudNativePG, OpenObserve, Argo CD, External Secrets — with an educational wizard that teaches as it installs.",
-    tag: "Blessed Stack",
-  },
-  {
-    icon: Shield,
-    iconColor: "text-amber-500",
-    iconBg: "bg-amber-500/10",
-    title: "Kubernetes Operator",
-    description:
-      "Validate deployments against personas. Advisory or enforcing webhooks, Prometheus-based resource learning, ArgoCD sync tracking — all read-only, never touching your workloads.",
-    tag: "Operator",
-  },
-  {
     icon: Brain,
-    iconColor: "text-cyan-500",
-    iconBg: "bg-cyan-500/10",
+    iconColor: "text-teal-500",
+    iconBg: "bg-teal-500/10",
     title: "Cluster Personas",
     description:
-      "Give your cluster a soul. ClusterPersona CRDs auto-discover nodes, addons, capacity, and state — making your cluster self-aware and policy-ready.",
+      "Give your cluster a soul. ClusterPersona CRDs auto-discover nodes, addons, capacity, and state: the cluster context the AI plans against.",
     tag: "ClusterPersona CRD",
   },
   {
-    icon: Monitor,
-    iconColor: "text-sky-500",
-    iconBg: "bg-sky-500/10",
-    title: "Platform Dashboard",
+    icon: Sparkles,
+    iconColor: "text-fuchsia-500",
+    iconBg: "bg-fuchsia-500/10",
+    title: "AI Manifest Generation",
     description:
-      "Real-time cluster visualization. See nodes, resources, addons, and application health via WebSocket-powered live updates.",
-    tag: "dorgu platform serve",
-    colSpan: "md:col-span-2",
+      "Getting started from scratch? Point dorgu at your Dockerfile or Compose file for production-ready Deployments, Services, Ingress, HPA, ArgoCD config, CI/CD workflows, and a matching persona.",
+    tag: "dorgu generate",
+  },
+  {
+    icon: Layers,
+    iconColor: "text-lime-600",
+    iconBg: "bg-lime-500/10",
+    title: "Cluster Setup Wizard",
+    description:
+      "Bootstrap a production stack in minutes. cert-manager, ingress-nginx, CloudNativePG, OpenObserve, Argo CD, External Secrets, with an educational wizard that teaches as it installs.",
+    tag: "Blessed Stack",
   },
   {
     icon: GitBranch,
@@ -87,8 +117,17 @@ const FEATURES: Feature[] = [
     iconBg: "bg-rose-500/10",
     title: "GitOps Native",
     description:
-      "Generates ArgoCD Applications, scaffolds App-of-Apps directories, respects your GitOps workflows. Helm or declarative — your choice.",
+      "Generates ArgoCD Applications, scaffolds App-of-Apps directories, respects your GitOps workflows. Approve a fix with --no-heal and apply it through your own pipeline.",
     tag: "ArgoCD",
+  },
+  {
+    icon: Monitor,
+    iconColor: "text-sky-500",
+    iconBg: "bg-sky-500/10",
+    title: "Platform Dashboard",
+    description:
+      "A live view of your cluster: nodes, capacity, addons, and ClusterPersona state over WebSockets. Incidents and remediations are reviewed from the CLI today.",
+    tag: "dorgu platform serve",
   },
 ];
 
@@ -165,11 +204,11 @@ export function Features() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Everything you need to ship to Kubernetes
+            An AI SRE for teams without an SRE
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            From manifest generation to cluster management — dorgu covers the
-            full lifecycle.
+            Kubernetes restarts a crash-looping pod forever and never asks why.
+            Dorgu asks, then shows you the fix and waits for your call.
           </p>
         </div>
 
