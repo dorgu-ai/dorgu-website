@@ -16,9 +16,9 @@ const STEPS: Step[] = [
     number: 1,
     title: "Install",
     command:
-      "helm install dorgu-operator oci://ghcr.io/dorgu-ai/dorgu-operator-charts/dorgu-operator --set healthCheck.enabled=true",
+      "helm install dorgu-operator oci://ghcr.io/dorgu-ai/dorgu-operator-charts/dorgu-operator",
     description:
-      "One Helm command, in your own cluster. Add an Anthropic key if you want AI diagnosis and AI-written plans. Everything works rule-based without one.",
+      "One Helm command, in your own cluster. Detection is on out of the box. Add an Anthropic key if you want AI diagnosis and AI-written plans. Everything works rule-based without one.",
   },
   {
     number: 2,
@@ -46,7 +46,7 @@ const STEPS: Step[] = [
     title: "You approve, it heals",
     command: "dorgu remediation approve fix-oom-api-server -n production",
     description:
-      "Nothing is applied until you say so. The operator patches the persona's desired state; the CLI patches the Deployment with your credentials. If health regresses during the verification window, Dorgu rolls it back.",
+      "Nothing is applied until you say so. The operator patches the persona's desired state, and where nothing else reconciles the Deployment the CLI patches it with your credentials. Where Helm or ArgoCD owns it, Dorgu hands you the change to make in your chart or repo rather than writing over your pipeline. If health regresses during the verification window, Dorgu rolls it back.",
   },
   {
     number: 6,

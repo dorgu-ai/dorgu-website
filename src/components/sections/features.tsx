@@ -72,7 +72,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-violet-500/10",
     title: "Kubernetes Operator",
     description:
-      "Validate deployments against personas. Advisory or enforcing webhooks, Prometheus-based resource learning, ArgoCD sync tracking. It never creates or modifies your workloads, only the persona and incident records.",
+      "Validate deployments against personas. Advisory or enforcing webhooks, Prometheus-based resource learning, ArgoCD sync tracking. It never creates or modifies your workloads, only the persona and incident records, and its ClusterRole is published so you can check that rather than take our word for it.",
     tag: "Operator",
   },
   {
@@ -108,17 +108,17 @@ const FEATURES: Feature[] = [
     iconBg: "bg-lime-500/10",
     title: "Cluster Setup Wizard",
     description:
-      "Bootstrap a production stack in minutes. cert-manager, ingress-nginx, CloudNativePG, OpenObserve, Argo CD, External Secrets, with an educational wizard that teaches as it installs.",
+      "Bootstrap a production stack in minutes. cert-manager, ingress-nginx, CloudNativePG, OpenObserve, Argo CD, External Secrets, with an educational wizard that teaches as it installs. Or scaffold it as an ArgoCD App-of-Apps repository and let your own GitOps pipeline reconcile it.",
     tag: "Blessed Stack",
   },
   {
     icon: GitBranch,
     iconColor: "text-rose-500",
     iconBg: "bg-rose-500/10",
-    title: "GitOps Native",
+    title: "It won't fight your pipeline",
     description:
-      "Generates ArgoCD Applications, scaffolds App-of-Apps directories, respects your GitOps workflows. Approve a fix with --no-heal and apply it through your own pipeline.",
-    tag: "ArgoCD",
+      "Dorgu detects who owns each workload and refuses to patch one that Helm, ArgoCD, Flux or kustomize reconciles. Patching it would claim those fields away from your deployment tool and make your next helm upgrade fail outright. So Dorgu names the release or application that owns it and tells you which value to change in your chart or your Git repo. Your source of truth stays the source of truth.",
+    tag: "Helm, ArgoCD, Flux",
   },
   {
     icon: Monitor,
