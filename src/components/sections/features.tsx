@@ -117,7 +117,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-rose-500/10",
     title: "It won't fight your pipeline",
     description:
-      "Dorgu detects who owns each workload and refuses to patch one that Helm, ArgoCD, Flux or kustomize reconciles. Patching it would claim those fields away from your deployment tool and make your next helm upgrade fail outright. So Dorgu names the release or application that owns it and tells you which value to change in your chart or your Git repo. Your source of truth stays the source of truth.",
+      "Dorgu detects who owns each workload and refuses to patch one that Helm, ArgoCD or Flux reconciles. Patching it would claim those fields away from your deployment tool and make your next helm upgrade fail outright. So Dorgu names the release or application that owns it and tells you which value to change in your chart or your Git repo. Where it does patch, it removes its own field manager afterwards, so it leaves no ownership footprint behind. Your source of truth stays the source of truth.",
     tag: "Helm, ArgoCD, Flux",
   },
   {
