@@ -40,7 +40,7 @@ export const FEATURES = [
   "Observe mode (detect and diagnose, propose nothing)",
   "Dashboard for reviewing and approving proposals (planned)",
   "Auto-approve rules for remediations (planned)",
-  "Multi-cluster management (Enterprise, planned)",
+  "Multi-cluster management (planned)",
 ] as const;
 
 export const SANDBOX_OPTIONS = [

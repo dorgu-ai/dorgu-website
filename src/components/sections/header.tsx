@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Open source", href: "#open-source" },
   { label: "Docs", href: "https://dorguai.mintlify.app/", external: true },
 ] as const;
 
