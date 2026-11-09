@@ -14,14 +14,13 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const FREE_FEATURES = [
-  "The full self-healing loop: detect, diagnose, propose, approve, heal, remember",
+  "The full loop: detect, diagnose, propose, you approve, apply, verify",
   "AI diagnosis and AI-written remediation plans (bring your own Anthropic key)",
   "Rule-based detection, diagnosis, and remediation with no AI key at all",
-  "Guardrails: approval-gated, 2× blast-radius cap, rate limits, auto-rollback",
-  "Full CLI: generate, init, persona, cluster, health, incidents, remediation (diff / approve / heal), watch, sync",
-  "Full Kubernetes Operator (validation, personas, self-healing)",
-  "Cluster setup wizard (Blessed Stack)",
-  "Platform dashboard",
+  "Guardrails: human approval re-checked on the live cluster, 2× blast-radius cap, rate limits, protected namespaces, persona rollback",
+  "Advisory steps for Helm, Argo CD and Flux workloads, applied only to workloads nothing else owns",
+  "CLI: health, incidents, remediation (diff / approve / reject / heal), persona import, report",
+  "Kubernetes Operator (persona validation, self-healing loop, published ClusterRole)",
   "ArgoCD + Prometheus integration",
   "Community support",
 ];

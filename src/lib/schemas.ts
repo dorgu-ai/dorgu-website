@@ -31,14 +31,14 @@ export const PAIN_POINTS = [
 ] as const;
 
 export const FEATURES = [
-  "AI self-healing (detect → diagnose → propose → approve → heal)",
+  "Self-healing loop (detect → diagnose → propose → approve → apply)",
   "Human-in-the-loop approval & guardrails",
   "AI root cause analysis (bring your own Anthropic key)",
   "Incident memory & remediation history in the cluster",
-  "AI-powered manifest generation",
+  "Advisory fix steps for Helm, Argo CD and Flux workloads",
   "Application & Cluster Personas (CRDs)",
-  "Blessed Stack (curated production tooling)",
-  "Real-time platform dashboard",
+  "Observe mode (detect and diagnose, propose nothing)",
+  "Dashboard for reviewing and approving proposals (planned)",
   "Auto-approve rules for remediations (planned)",
   "Multi-cluster management (Enterprise, planned)",
 ] as const;

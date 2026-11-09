@@ -7,12 +7,9 @@ import {
   UserCheck,
   History,
   KeyRound,
-  Sparkles,
   Fingerprint,
-  Layers,
   Shield,
   Brain,
-  Monitor,
   GitBranch,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -33,9 +30,9 @@ const FEATURES: Feature[] = [
     icon: HeartPulse,
     iconColor: "text-primary",
     iconBg: "bg-primary/10",
-    title: "AI Self-Healing",
+    title: "The self-healing loop",
     description:
-      "Detect, diagnose, propose, approve, heal, remember. Dorgu spots OOMKills, crash loops, saturation, and node or control-plane trouble, works out the root cause, and writes an ordered plan. Every step carries its rationale, risk level, and a YAML diff you can read before anything happens.",
+      "Detect, diagnose, propose, approve, apply, verify. Dorgu spots OOMKills, crash loops, probe failures, saturation, and node or control-plane trouble, works out the root cause, and writes an ordered plan. Every step carries its rationale, risk level, and a YAML diff you can read before anything happens. Code decides what is wrong and which kind of fix applies. The model, when you turn it on, explains.",
     tag: "the loop",
     colSpan: "md:col-span-2",
   },
@@ -45,7 +42,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-emerald-500/10",
     title: "Human-in-the-loop by default",
     description:
-      "Every remediation is approval-gated. Resource changes are capped at 2× blast radius, limited to 5 per app per hour, and kube-system is always excluded. If health regresses after a fix, Dorgu rolls it back automatically.",
+      "Every remediation needs a human to approve it. Resource changes are capped at 2× the live value, limited to 5 per app per hour, and kube-system and Dorgu's own namespace are always excluded. When you approve, the same checks run again on the live cluster and issue a short-lived ticket, and Dorgu applies exactly that. If health regresses after a fix, it restores the persona and tells you if the workload still carries the change.",
     tag: "approval required",
   },
   {
@@ -72,7 +69,7 @@ const FEATURES: Feature[] = [
     iconBg: "bg-violet-500/10",
     title: "Kubernetes Operator",
     description:
-      "Validate deployments against personas. Advisory or enforcing webhooks, Prometheus-based resource learning, ArgoCD sync tracking. It never creates or modifies your workloads, only the persona and incident records, and its ClusterRole is published so you can check that rather than take our word for it.",
+      "Validate deployments against personas, learn resource baselines from Prometheus, and track ArgoCD sync. It never creates or modifies your workloads, only the persona and incident records, and its ClusterRole is published so you can check that rather than take our word for it.",
     tag: "Operator",
   },
   {
@@ -94,24 +91,6 @@ const FEATURES: Feature[] = [
     tag: "ClusterPersona CRD",
   },
   {
-    icon: Sparkles,
-    iconColor: "text-fuchsia-500",
-    iconBg: "bg-fuchsia-500/10",
-    title: "AI Manifest Generation",
-    description:
-      "Getting started from scratch? Point dorgu at your Dockerfile or Compose file for production-ready Deployments, Services, Ingress, HPA, ArgoCD config, CI/CD workflows, and a matching persona.",
-    tag: "dorgu generate",
-  },
-  {
-    icon: Layers,
-    iconColor: "text-lime-600",
-    iconBg: "bg-lime-500/10",
-    title: "Cluster Setup Wizard",
-    description:
-      "Bootstrap a production stack in minutes. cert-manager, ingress-nginx, CloudNativePG, OpenObserve, Argo CD, External Secrets, with an educational wizard that teaches as it installs. Or scaffold it as an ArgoCD App-of-Apps repository and let your own GitOps pipeline reconcile it.",
-    tag: "Blessed Stack",
-  },
-  {
     icon: GitBranch,
     iconColor: "text-rose-500",
     iconBg: "bg-rose-500/10",
@@ -119,15 +98,6 @@ const FEATURES: Feature[] = [
     description:
       "Dorgu detects who owns each workload and refuses to patch one that Helm, ArgoCD or Flux reconciles. Patching it would claim those fields away from your deployment tool and make your next helm upgrade fail outright. So Dorgu names the release or application that owns it and tells you which value to change in your chart or your Git repo. Where it does patch, it removes its own field manager afterwards, so it leaves no ownership footprint behind. Your source of truth stays the source of truth.",
     tag: "Helm, ArgoCD, Flux",
-  },
-  {
-    icon: Monitor,
-    iconColor: "text-sky-500",
-    iconBg: "bg-sky-500/10",
-    title: "Platform Dashboard",
-    description:
-      "A live view of your cluster: nodes, capacity, addons, and ClusterPersona state over WebSockets. Incidents and remediations are reviewed from the CLI today.",
-    tag: "dorgu platform serve",
   },
 ];
 
