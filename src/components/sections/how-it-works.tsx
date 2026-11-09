@@ -16,16 +16,16 @@ const STEPS: Step[] = [
     number: 1,
     title: "Install",
     command:
-      "helm install dorgu-operator oci://ghcr.io/dorgu-ai/dorgu-operator-charts/dorgu-operator",
+      "helm install dorgu-operator oci://ghcr.io/dorgu-ai/dorgu-operator-charts/dorgu-operator -n dorgu-system --create-namespace",
     description:
-      "One Helm command, in your own cluster. Detection is on out of the box. Add an Anthropic key if you want AI diagnosis and AI-written plans. Everything works rule-based without one.",
+      "One Helm command, in your own cluster, plus the dorgu CLI on your laptop for reviewing and approving. Detection is on out of the box. Add an Anthropic key if you want AI diagnosis and AI-written plans. Everything works rule-based without one.",
   },
   {
     number: 2,
     title: "Dorgu detects",
     command: "dorgu incidents list",
     description:
-      "The health-check reconciler watches for OOMKills, crash loops, image-pull failures, CPU and memory saturation, and node or control-plane trouble, every 60s by default or 30s for a tight loop. Each signal opens an IncidentMemory.",
+      "The health-check reconciler watches for OOMKills, crash loops, probe failures, image-pull failures, CPU and memory saturation, and node or control-plane trouble, every 60s by default or 30s for a tight loop. Each signal opens an IncidentMemory.",
   },
   {
     number: 3,
@@ -46,7 +46,7 @@ const STEPS: Step[] = [
     title: "You approve, it heals",
     command: "dorgu remediation approve fix-oom-api-server -n production",
     description:
-      "Nothing is applied until you say so. The operator patches the persona's desired state, and where nothing else reconciles the Deployment the CLI patches it with your credentials. Where Helm or ArgoCD owns it, Dorgu hands you the change to make in your chart or repo rather than writing over your pipeline. If health regresses during the verification window, Dorgu rolls it back.",
+      "Nothing is applied until you say so. When you approve, the operator checks the plan again against the live cluster and issues a short-lived ticket. It patches the persona's desired state, and where nothing else reconciles the Deployment the CLI patches it with your credentials, applying exactly the ticket. Where Helm, ArgoCD or Flux owns it, Dorgu hands you the change to make in your chart or repo rather than writing over your pipeline. If health regresses during the verification window, Dorgu restores the persona and says so if the workload still carries the change.",
   },
   {
     number: 6,

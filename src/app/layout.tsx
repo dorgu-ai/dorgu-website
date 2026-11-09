@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_TITLE = "Dorgu: Open-source AI SRE for Kubernetes";
+const SITE_TITLE = "Dorgu: The open-source harness for self-healing Kubernetes";
 const SITE_DESCRIPTION =
-  "Dorgu detects what's wrong in your Kubernetes cluster, diagnoses the root cause with AI, proposes a reviewable fix, and heals it once you approve. Open source, runs in your own cluster.";
+  "The model proposes. The harness decides. Dorgu detects what is wrong in your Kubernetes cluster, diagnoses it, proposes a reviewable fix, and applies it once you approve, to workloads nothing else owns. Advisory steps for Helm, Argo CD and Flux. Open source, runs in your own cluster.";
 const SOCIAL_DESCRIPTION =
-  "Detect, diagnose with AI, propose a reviewable fix, heal on your approval. Open source, runs in your own cluster.";
+  "The model proposes. The harness decides. Detect, diagnose, propose a reviewable fix, apply it on your approval. Open source, runs in your own cluster.";
 const SOCIAL_IMAGE = {
   url: "/hero-poster.jpg",
   width: 1280,

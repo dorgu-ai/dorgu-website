@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 const PRODUCT_LINKS = [
   { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Open source", href: "#open-source" },
   {
     label: "Documentation",
     href: "https://dorguai.mintlify.app/",

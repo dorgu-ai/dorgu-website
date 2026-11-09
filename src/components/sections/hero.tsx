@@ -45,8 +45,8 @@ export function Hero({ className }: { className?: string }) {
             custom={0}
             className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl xl:text-6xl"
           >
-            Your cluster, healing itself,{" "}
-            <span className="text-primary">with your approval</span>
+            The open-source harness for{" "}
+            <span className="text-primary">self-healing Kubernetes</span>
           </motion.h1>
 
           <motion.p
@@ -56,9 +56,11 @@ export function Hero({ className }: { className?: string }) {
             custom={0.12}
             className="mt-6 max-w-xl text-lg text-muted-foreground"
           >
-            Dorgu watches your cluster, diagnoses failures with AI, proposes a
-            reviewable fix, and applies it when you approve. Runs in your own
-            cluster. Apache-2.0.
+            The model proposes. The harness decides. Dorgu detects what is
+            wrong, grounds the diagnosis in live cluster state, caps how far a
+            change can go, and waits for your approval. It applies the fix to
+            workloads nothing else owns and gives advisory steps for Helm,
+            Argo CD and Flux. Runs in your own cluster. Apache-2.0.
           </motion.p>
 
           <motion.div
